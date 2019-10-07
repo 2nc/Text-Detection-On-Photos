@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<head>
+    <title>Login</title>
+</head>
+<html>
+    <body>
+        {{ error if error != None}}
+        <form method='post' action='login_submit'>
+            <div>
+                <label>Username:</label>
+                <input type="text" name="username" value="{{username if username != None}}" />
+            </div>
+
+            <div>
+                <label>Password:</label>
+                <input type="password" name="password"/>
+            </div>
+
+            <input type="submit" value="log in" />
+        </form>
+    </body>
+</html>
