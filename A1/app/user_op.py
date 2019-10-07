@@ -24,7 +24,7 @@ def login_submit():
     cnx = get_db()
     cursor = cnx.cursor()
     if 'username' in request.form and \
-        'password' in request.form:
+            'password' in request.form:
         query = "SELECT * FROM user_information WHERE username='%s';" % (request.form['username'])
         cursor.execute(query)
         c = cursor.fetchall()
@@ -37,6 +37,53 @@ def login_submit():
 
     session['error'] = "Error! Incorrect username or password!"
     return redirect(url_for('login'))
+
+
+@webapp.route('/register', methods=['GET', 'POST'])
+def register():
+    uname_r = None
+    e_r = None
+
+    if 'username_r' in session:
+        uname_r = session['username_r']
+
+    if 'error_r' in session:
+        e_r = session['error_r']
+
+    return render_template("register.html", error=e_r, username=uname_r)
+
+
+@webapp.route('/register_submit', methods=['POST'])
+def register_submit():
+    cnx = get_db()
+    cursor = cnx.cursor()
+    if 'username' in request.form and \
+            'password' in request.form and 'confirm_password' in request.form:
+        query = "SELECT * FROM user_information WHERE username='%s';" % (request.form['username'])
+        cursor.execute(query)
+        c = cursor.fetchall()
+        # Judge if the username has duplicate
+        if len(c) == 1 and c[0][0] == request.form['username']:
+            session['error_r'] = "This user had registered, change another username!"
+            return redirect(url_for('register'))
+        # Judge whether the two passwords are same
+        if request.form['password'] != request.form['confirm_password']:
+            session['error_r'] = "The two passwords are not the same, please confirm!"
+            return redirect(url_for('register'))
+        query = "INSERT INTO user_information VALUES ('%s','%s');" % (
+        request.form['username'], request.form['password'])
+        try:
+            cursor.execute(query)
+            cnx.commit()
+        except:
+            # 发生错误时回滚
+            cnx.rollback()
+
+        success = "Create account Success, please login!"
+        return render_template("login.html", register_success=success)
+
+    session['error_r'] = "Every box should have value!"
+    return redirect(url_for('register'))
 
 
 @webapp.route('/logout', methods=['GET', 'POST'])
