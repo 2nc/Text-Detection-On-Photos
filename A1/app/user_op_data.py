@@ -27,11 +27,4 @@ def teardown_db(exception):
         db.close()
 
 
-@webapp.route('/GetData', methods=['GET'])
-def getData():
-    cnx = get_db()
-    cursor = cnx.cursor()
-    query = "SELECT * FROM user_information;"
-    cursor.execute(query)
-    print(cursor.rowcount)
-    return render_template("GetData.html", cursor=cursor)
+
