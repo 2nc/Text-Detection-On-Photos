@@ -18,9 +18,10 @@ USE `mydb` ;
 -- Table `mydb`.`user_information`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `mydb`.`user_information` (
-  `username` VARCHAR(200) NOT NULL,
+  `user_id` VARCHAR(200) NOT NULL,
+  `username` VARCHAR(200) NULL,
   `password` VARCHAR(200) NULL,
-  PRIMARY KEY (`username`))
+  PRIMARY KEY (`user_id`))
 ENGINE = InnoDB;
 
 
@@ -28,14 +29,14 @@ ENGINE = InnoDB;
 -- Table `mydb`.`picture_path`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `mydb`.`picture_path` (
-  `username` VARCHAR(200) NOT NULL,
-  `path` VARCHAR(250) NOT NULL,
-  `user_information_username` VARCHAR(200) NOT NULL,
-  PRIMARY KEY (`username`, `path`, `user_information_username`),
-  INDEX `fk_picture_path_user_information_idx` (`user_information_username` ASC) VISIBLE,
+  `user_id` VARCHAR(200) NOT NULL,
+  `origin_path` VARCHAR(250) NOT NULL,
+  `textdetect_path` VARCHAR(250) NULL,
+  PRIMARY KEY (`user_id`, `origin_path`),
+  INDEX `fk_picture_path_user_information_idx` (`user_id` ASC) VISIBLE,
   CONSTRAINT `fk_picture_path_user_information`
-    FOREIGN KEY (`user_information_username`)
-    REFERENCES `mydb`.`user_information` (`username`)
+    FOREIGN KEY (`user_id`)
+    REFERENCES `mydb`.`user_information` (`user_id`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
