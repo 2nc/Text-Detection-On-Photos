@@ -28,7 +28,7 @@ def login_submit():
         query = "SELECT * FROM user_information WHERE username='%s';" % (request.form['username'])
         cursor.execute(query)
         c = cursor.fetchall()
-        if len(c) == 1 and c[0][1] == request.form['password']:
+        if len(c) == 1 and c[0][2] == request.form['password']:
             session['authenticated'] = True
             return redirect(url_for('disPhoto'))
 
@@ -70,13 +70,17 @@ def register_submit():
         if request.form['password'] != request.form['confirm_password']:
             session['error_r'] = "The two passwords are not the same, please confirm!"
             return redirect(url_for('register'))
-        query = "INSERT INTO user_information VALUES ('%s','%s');" % (
-        request.form['username'], request.form['password'])
+        #Assign unique user_id
+        query = "SELECT * FROM user_information";
+        cursor.execute(query)
+        c = cursor.fetchall()
+        id = len(c)
+        query = "INSERT INTO user_information VALUES ('%d','%s','%s');" % (
+        id+1, request.form['username'], request.form['password'])
         try:
             cursor.execute(query)
             cnx.commit()
         except:
-            # 发生错误时回滚
             cnx.rollback()
 
         success = "Create account Success, please login!"
