@@ -27,4 +27,6 @@ def teardown_db(exception):
         db.close()
 
 
+class ServerError(Exception):
+    pass
 
