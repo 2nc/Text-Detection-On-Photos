@@ -5,6 +5,7 @@ from app import webapp
 from app.user_op_data import get_db
 # password
 from werkzeug.security import generate_password_hash, check_password_hash
+from app.upload import file_upload
 
 webapp.secret_key = '\x80\xa9s*\x12\xc7x\xa9d\x1f(\x03\xbeHJ:\x9f\xf0!\xb1a\xaa\x0f\xee'
 
@@ -52,11 +53,12 @@ def login_submit():
             session.permanent = True
             session['username']=request.form['username']
             if ('TA' in session and session['TA'] == True):
-                return
+                return redirect(url_for('disPhoto'))
             return redirect(url_for('disPhoto'))
 
     if 'username' in request.form:
         session['username'] = request.form['username']
+        session['authenticated'] = False
 
     session['error'] = "Error! Incorrect username or password!"
     return redirect(url_for('login'))
