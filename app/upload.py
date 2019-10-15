@@ -14,9 +14,6 @@ import time
 import cv2
 from app.option2 import non_max_suppression
 
-dir_path = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-
-
 
 def mkdir(path):
     folder = os.path.exists(path)
@@ -24,15 +21,14 @@ def mkdir(path):
         os.makedirs(path)
 
 
-
 @webapp.route('/upload', methods=['POST'])
 # Upload a new file and store in the systems temp directory
 def file_upload():
     # check if the post request has the file part
-    if 'file' not in request.files:
+    if 'uploadedfile' not in request.files:
         return "Missing uploaded file"
 
-    new_file = request.files['file']
+    new_file = request.files['uploadedfile']
 
 
     # if user does not select file, browser also
@@ -40,29 +36,37 @@ def file_upload():
     if new_file.filename == '':
         return 'Missing file name'
 
-    # if 'username' not in session:
-    #   return redirect(url_for('login'))
+    if 'username' not in session:
+        return redirect(url_for('login'))
 
     # create a new path for each new user&photo
     username = str(session["username"])
     now = datetime.now()
     name, extn = new_file.filename.split('.')
+
+    # Filter incorrect type of file
+    ALLOWED_EXTENSIONS = ['png', 'jpg', 'jpeg', 'JPG', 'PNG', 'JPEG']
+    if extn not in ALLOWED_EXTENSIONS:
+        return 'Incorrect file type'
     localtime = now.strftime('%H%M%S')
     filename = name + localtime
-    path = os.path.join("app","image", username)
-    print(path)
-    path_show = os.path.join("image", username)
-    print(path_show)
+    path = "app/static/" + username
     mkdir(path)
-    path_origin = os.path.join(path, filename+'.'+ extn)
-    path_origin_show = os.path.join(path_show, filename+ '.'+ extn)
-    fname = os.path.join(dir_path, path, filename+'.'+ extn)
+    path_origin = path + "/" + filename + '.' + extn
+    fname = os.path.join(path + "/", filename + '.' + extn)
+
     new_file.save(fname)
+
+    # Filter unreasonable big file
+    fsize = os.path.getsize(fname)
+    fsize = fsize / float(1024 * 1024)
+    if fsize > 100:
+        return 'Unexpected big file'
 
     # generate and save the thumbnail
     im = Image.open(fname)
     im.thumbnail((200,100))
-    path_tn = os.path.join(path, filename+'_tn'+'.'+ extn)
+    path_tn = path + "/" + filename + '_tn' + '.' + extn
     im.save(path_tn)
 
     # generate and save the result of text detection
@@ -207,5 +211,7 @@ def file_upload():
     cursor.execute(query, (user_id, path_origin, path_tn, path_td))
     cnx.commit()
 
+    print(path_origin[4:])
+
     return render_template("show.html",
-                           f1=path_origin_show, f2=path_tn, f3=path_td)
+                           f1=path_origin[4:], f2=path_tn[4:], f3=path_td[4:])
