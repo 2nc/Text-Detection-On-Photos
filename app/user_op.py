@@ -53,7 +53,7 @@ def login_submit():
             session.permanent = True
             session['username']=request.form['username']
             if ('TA' in session and session['TA'] == True):
-                return redirect(url_for('disPhoto'))
+                return 1
             return redirect(url_for('disPhoto'))
 
     if 'username' in request.form:
@@ -157,8 +157,10 @@ def uploadTA():
 # Upload operation for TA
 @webapp.route('/loginfileTA', methods=['POST'])
 def loginfileTA():
-    login_submit()
-    return file_upload()
+    login_success = login_submit()
+    if login_success == 1:
+        return file_upload()
+    return login_success
 
 
 

@@ -29,10 +29,10 @@ def mkdir(path):
 # Upload a new file and store in the systems temp directory
 def file_upload():
     # check if the post request has the file part
-    if 'uploadedfile' not in request.files:
+    if 'file' not in request.files:
         return "Missing uploaded file"
 
-    new_file = request.files['uploadedfile']
+    new_file = request.files['file']
 
 
     # if user does not select file, browser also
