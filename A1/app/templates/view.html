@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>View</title>
+</head>
+<body>
+<div id='photos' class="container-fluid" style="padding: 10px 30px 30px;">
+    <div class="row">
+        {% for image in image_list %}
+            <div class="col-md-6">
+                <div class="thumbnail" style="background:white">
+                    <img src="{{ image }}" style="width: 100%">
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+</div>
+</body>
+</html>
