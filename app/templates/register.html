@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<head>
+    <title>Register</title>
+</head>
+<html>
+    <body>
+        {{ error if error != None}}
+        <form method='post' action='register_submit'>
+            <div>
+                <label>Username:</label>
+                <input type="text" name="username" value="{{username if username != None}}" />
+            </div>
+
+            <div>
+                <label>Password:</label>
+                <input type="password" name="password"/>
+            </div>
+
+            <div>
+                <label>Confirm Password:</label>
+                <input type="password" name="confirm_password"/>
+            </div>
+
+            <input type="submit" value="Register" />
+        </form>
+    </body>
+</html>

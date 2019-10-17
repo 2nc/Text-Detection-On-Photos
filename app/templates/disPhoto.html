@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<head>
+    <title>Display Photo</title>
+</head>
+<html>
+    <body>
+        <div>
+            <form method="post" action="/upload" enctype="multipart/form-data">
+                Upload New Pictures:<br>
+                <input type="file" name="file"><br/>
+                <input type="submit" value="Send">
+                <input type="reset">
+            </form>
+            </div>
+            <div>
+                View Previous Pictures:<br>
+                <a href="{{ url_for('view')}}">
+                    <button>View My Pictures</button>
+                </a>
+            </div>
+            <a href="{{ url_for('logout')}}">logout</a>
+    </body>
+</html>
