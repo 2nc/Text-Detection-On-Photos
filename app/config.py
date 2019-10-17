@@ -4,6 +4,6 @@ db_config = {'user': 'root',
              'database': 'mydb'}
 
 conn_args = {
-    
+
     'region_name': 'us-east-1'
 }
