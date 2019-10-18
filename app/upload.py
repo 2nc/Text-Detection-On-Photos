@@ -218,7 +218,7 @@ def file_upload():
     return render_template("show.html",
                            f1=path_origin[4:], f2=path_tn[4:], f3=path_td[4:])
 
-@webapp.route('/show/<filename>')
+@webapp.route('/<filename>')
 def showphoto(filename):
     cnx = get_db()
     cursor = cnx.cursor()
