@@ -18,6 +18,9 @@
                     <button>View My Pictures</button>
                 </a>
             </div>
+            {{ error_dis if error_dis != None}}
+            <br>
             <a href="{{ url_for('logout')}}">logout</a>
+
     </body>
 </html>

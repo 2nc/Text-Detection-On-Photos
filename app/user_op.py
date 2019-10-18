@@ -51,6 +51,7 @@ def login_submit():
             session['authenticated'] = True
             session.permanent = True
             session['username'] = request.form['username']
+            session['error_dis'] = None
             return redirect(url_for('disPhoto'))
 
     if 'username' in request.form:
