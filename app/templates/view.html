@@ -1,26 +1,18 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <link rel="stylesheet" href="static/css/view.css">
     <title>View</title>
 </head>
 <body>
-<!--
-<div id='photos' class="container-fluid" style="padding: 10px 30px 30px;">
-    <div class="row">
+    <div class="col-md-6">
 
-            <div class="col-md-6">
-                <div class="thumbnail" style="background:white">
-                    <img src="" style="width: 100%">
-                </div>
-            </div>
+
+            {% for row in listphoto %}
+                <a href="{{ url_for('showphoto',filename=row[3]) }}"><img src="{{ row[1][4:] }}"></a>
+            {% endfor %}
+
 
     </div>
-</div>
--->
-    1234567
-    {% for row in allphotos %}
-        row[1][4:]
-        <img src="{{ row[1][4:] }}">
-    {% endfor %}
 </body>
 </html>

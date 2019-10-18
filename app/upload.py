@@ -196,7 +196,7 @@ def file_upload():
     # cv2.imshow("Text Detection", orig)
     # cv2.waitKey(0)
     # save the new image in a new path
-    path_td = path + "/" + filename + '_td' + '.' + extn
+    path_td = os.path.join(path, filename + '_td' + '.' + extn)
     cv2.imwrite(path_td, orig)
 
     cnx = get_db()
@@ -213,10 +213,30 @@ def file_upload():
     cursor.execute(query, (user_id, path_origin, path_tn, path_td))
     cnx.commit()
 
-    print(path_origin[4:])
+    print("upload:", path_origin[4:])
 
     return render_template("show.html",
                            f1=path_origin[4:], f2=path_tn[4:], f3=path_td[4:])
+
+@webapp.route('/show/<filename>')
+def showphoto(filename):
+    cnx = get_db()
+    cursor = cnx.cursor()
+    #query = "SELECT * from image where user_id=%s;" % (session['user_id'])
+    #cursor.execute(query)
+    #temp = cursor.fetchall()
+    #pathhead = os.path.split(temp[0][2])
+    #searchpath = os.path.join(pathhead[0], filename)
+    #print(searchpath)
+    query = "SELECT * from image where thumb_path like '%s';" % ('%' + filename)
+    cursor.execute(query)
+    result = cursor.fetchall()
+    print("display:", result[0][1][4:])
+    return render_template("show.html",
+                           f1=result[0][1][4:], f2=result[0][2][4:], f3=result[0][3][4:])
+
+
+
 
 def file_uploadTA():
     # check if the post request has the file part
@@ -388,7 +408,7 @@ def file_uploadTA():
     # cv2.imshow("Text Detection", orig)
     # cv2.waitKey(0)
     # save the new image in a new path
-    path_td = path + "/" + filename + '_td' + '.' + extn
+    path_td = os.path.join(path, filename + '_td' + '.' + extn);
     cv2.imwrite(path_td, orig)
 
     cnx = get_db()

@@ -1,4 +1,4 @@
-import boto3
+import boto3, os
 from flask import render_template, request, session, redirect, url_for, escape
 
 from app import config
@@ -20,6 +20,17 @@ def view():
     if not allphotos:
         session['error_dis'] = "No photo in your account, Please upload photos first!"
         return redirect(url_for('disPhoto'))
+    else:
+        session['error_dis'] = None
+    listphoto = []
+    #insert filename to form new list
     for row in allphotos:
-        print(row[1])
-    return render_template('view.html', allphotos=allphotos)
+        listtemp=[]
+        for col in row:
+            listtemp.append(col)
+        fpath = os.path.split(row[1])
+        listtemp.append(fpath[1])
+        listphoto.append(listtemp)
+    print(listphoto)
+
+    return render_template('view.html', listphoto=listphoto)

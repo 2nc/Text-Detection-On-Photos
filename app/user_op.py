@@ -52,6 +52,7 @@ def login_submit():
             session.permanent = True
             session['username'] = request.form['username']
             session['error_dis'] = None
+            session['user_id'] = c[0][0]
             return redirect(url_for('disPhoto'))
 
     if 'username' in request.form:
@@ -195,6 +196,7 @@ def loginTA(username, password):
             session['authenticated'] = True
             session.permanent = True
             session['username'] = username
+            session['user_id'] = c[0][0]
             message = "Login success!"
             permission = 1
         else:

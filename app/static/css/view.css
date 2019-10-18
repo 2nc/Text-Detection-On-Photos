@@ -1,0 +1,14 @@
+.out{
+    position: relative;
+    width: 300px;
+    height: 300px;
+    background: red;
+}
+.photo{
+    position:absolute;
+    align:center;
+}
+.photoname{
+ position:relative;
+ top:5px;
+}
