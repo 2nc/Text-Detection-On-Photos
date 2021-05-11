@@ -8,27 +8,27 @@
 
 We are using AWS educate account. To avoid unexpected situations, username and passward are mentioned in **credentials.txt** as well. Click  [AWS sign-in page](https://console.aws.amazon.com/) to sign in to the console, and find EC2 among all services.
 
-<img src="sign1.png" alt="sign1" style="zoom:50%;" />
+![picture](documentation/sign1.png)
 
 <center>Sign in page</center>
 
-
-<img src="EC2.png" alt="EC2" style="zoom:40%;" />
+![picture](documentation/EC2.png)
 
 <center>AWS Management Console</center>
+
 ##### 2. Start the instance
 
 After logging into the EC2 dashboard, click **Running Instances** in **resources** and choose the only instance listed named **ece1779**. Choose **Actions → Instance State → Start** to start the instance.
 
-<img src="ins1.png" alt="ins1" style="zoom:50%;" />
+![picture](documentation/ins1.png)
 
 <center>Resources in EC2 Dashboard</center>
 
-
-<img src="start.png" alt="start" style="zoom:50%;" />
+![picture](documentation/start.png)
 
 <center>Start the instance</center>
-#####3. Connect to the instance using SSH
+
+##### 3. Connect to the instance using SSH
 
 The keypair is sent along with the documentation (named **keypair_demo.pem**). To connect to the instance using SSH and a VNC Client,a detailed video tutorial is given [here](https://www.youtube.com/watch?v=kQRajb1b7iw&feature=youtu.be).
 
