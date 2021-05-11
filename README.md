@@ -80,7 +80,9 @@ Open the browser and enter the dynamic URL **Server's IPv4 address + :5000** to 
 
 ###### Register or Login
 
-Click on **"Login&Register"** to either login your previous account or create a new account. Also, you can simply put mouse on **"Login&Register"** and choose from the drop-down menu.![login page](lor.png)
+Click on **"Login&Register"** to either login your previous account or create a new account. Also, you can simply put mouse on **"Login&Register"** and choose from the drop-down menu.
+
+![picture](documentation/lor.png)
 
 <center>Login&Register Page</center>
 
@@ -89,12 +91,12 @@ Click on **"Login&Register"** to either login your previous account or create a 
 
 After successfully logged in, you will be automatically redirected to the upload page. Follow the instructions to upload your photo once a time. Notice that the format is restricted to **.png**, **.jpg** and **.jpeg**. Also, your photo can not be bigger than **100MB**.
 
-![upload](upload.png)
+![picture](documentation/upload.png)
 
 <center>Upload Page</center>
 After uploading, your photo will be saved, as well as its thumbnail and result of text-detection. After going through all these steps, it will return a message to show that you have successfully uploaded a photo. You can choose to upload more photos or click on **album** to view your previous photos in thumbnail.
 
-![success](success.png)
+![picture](documentation/success.png)
 
 <center>Success Message</center>
 
@@ -103,12 +105,12 @@ After uploading, your photo will be saved, as well as its thumbnail and result o
 
 Your album is somewhere that contains all your uploaded photos. Instead of origin photos, the page shows thumbnails.
 
-![album](album.png)
+![picture](documentation/album.png)
 
 <center>Album</center>
 Click on a thumbnail, and you will get a new page for the origin photo, thumbnail and result of text-detection, which draws green rectangles around texts.
 
-![show](show.png)
+![picture](documentation/show.png)
 
 <center>Show a Photo Transformation</center>
 ###### Log Out
@@ -214,7 +216,7 @@ Corresponding to three requirements of our web application, there are three main
 
 ##### Database Schema
 
-![database schema](database.png)
+![picture](documentation/database.png)
 
 <center>Database Schema</center>
 
