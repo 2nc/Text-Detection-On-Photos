@@ -65,7 +65,7 @@ For example:
 
 
 
-####To Use the Web Application
+#### To Use the Web Application
 
 Our web application is substantially an album, which allows you to register, log in and out, as will as upload photos. Our application will save your uploaded photo as will as its thumbnail and result of text-detection, which is a new photo with green rectangle around texts. When you go into your own album, you will see thumbnails of all your uploaded photos. Click on one of them to see the origin photo, thumbnail and result of text-detection.
 
@@ -73,7 +73,9 @@ Detailed derections are shown below with sample screenshots.
 
 ###### Visit the Webpage
 
-Open the browser and enter the dynamic URL **Server's IPv4 address + :5000** to access the welcome page.![welcome](welcome.png)
+Open the browser and enter the dynamic URL **Server's IPv4 address + :5000** to access the welcome page.
+
+![picture](documentation/welcome.png)
 
 <center>Welcome Page</center>
 
@@ -113,6 +115,7 @@ Click on a thumbnail, and you will get a new page for the origin photo, thumbnai
 ![picture](documentation/show.png)
 
 <center>Show a Photo Transformation</center>
+
 ###### Log Out
 
 You can log out at any time by clicking **logout**. However, neither upload nor album function can be used without logging in.
@@ -208,11 +211,7 @@ Corresponding to three requirements of our web application, there are three main
 
 ##### Flow Chart
 
-<img src="flowchart.png" alt="flowchart" style="zoom:80%;" />
-
-<center>Flow Chart</center>
-
-
+![picture](documentation/flowchart.png)
 
 ##### Database Schema
 
