@@ -121,19 +121,23 @@ After uploading, your photo will be saved, as well as its thumbnail and result o
 
 Your album is somewhere that contains all your uploaded photos. Instead of origin photos, the page shows thumbnails.
 
-![picture](documentation/album.png)
+<p align="center">
+   <img src="https://github.com/2nc/Text-Detection-On-Photos/blob/master/documentation/album.png" alt="album" width=800px />
+   <br />
+   <b>Album</b>
+</p>
 
-<center>Album</center>
 Click on a thumbnail, and you will get a new page for the origin photo, thumbnail and result of text-detection, which draws green rectangles around texts.
 
-![picture](documentation/show.png)
-
-<center>Show a Photo Transformation</center>
+<p align="center">
+   <img src="https://github.com/2nc/Text-Detection-On-Photos/blob/master/documentation/show.png" alt="show" width=800px />
+   <br />
+   <b>Show a Photo Transformation</b>
+</p>
 
 ###### Log Out
 
 You can log out at any time by clicking **logout**. However, neither upload nor album function can be used without logging in.
-
 
 
 ### Developer's Reference
@@ -142,13 +146,13 @@ You can log out at any time by clicking **logout**. However, neither upload nor 
 
 ```python
 ----A1_3.0\
-    |----gen.py 												# load generator
-    |----run.py 												# run the web application
-    |----db\														# database
+    |----gen.py 										# load generator
+    |----run.py 										# run the web application
+    |----db\											# database
     |    |----create_table.sql
-    |----app\ 													# main application
-    |    |----static\ 									# a static path to store photos in the local system
-    |    |----templates\ 								# HTML templates
+    |----app\ 											# main application
+    |    |----static\ 								# a static path to store photos in the local system
+    |    |----templates\ 							# HTML templates
     |    |    |----base.html
     |    |    |----show.html
     |    |    |----album.html
@@ -159,14 +163,14 @@ You can log out at any time by clicking **logout**. However, neither upload nor 
     |    |    |----welcome.html
     |    |    |----upload.html
     |    |----__init__.py
-    |    |----main.py 									# the initial function
-    |    |----config.py 								# database configuration
+    |    |----main.py 								# the initial function
+    |    |----config.py 							# database configuration
     |    |----user_op_data.py 					# functions related to database
-    |    |----user_op.py 								# functions related to register & log in
-    |    |----upload.py 								# functions related to photo uploading and saving
-    |    |----view.py										# functions related to photo showing
+    |    |----user_op.py 							# functions related to register & log in
+    |    |----upload.py 							# functions related to photo uploading and saving
+    |    |----view.py								# functions related to photo showing
     |    |----suppression.py 						# the pre-trained EAST text detector
-    |    |----frozen_east_text_detection.pb	  # text detector
+    |    |----frozen_east_text_detection.pb	# text detector
 
 ```
 
@@ -225,13 +229,17 @@ Corresponding to three requirements of our web application, there are three main
 
 ##### Flow Chart
 
-![picture](documentation/flowchart.png)
+<p align="center">
+   <img src="https://github.com/2nc/Text-Detection-On-Photos/blob/master/documentation/flowchart.png" alt="flowchart" width=800px />
+</p>
 
 ##### Database Schema
 
-![picture](documentation/database.png)
-
-<center>Database Schema</center>
+<p align="center">
+   <img src="https://github.com/2nc/Text-Detection-On-Photos/blob/master/documentation/database.png" alt="database" />
+   <br />
+   <b>Database Schema</b>
+</p>
 
 There are two tables:
 - user_information table include three columns:
