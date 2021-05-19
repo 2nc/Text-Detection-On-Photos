@@ -142,7 +142,7 @@ You can log out at any time by clicking **logout**. However, neither upload nor 
 
 ### Developer's Reference
 
-#####General Architecture of the Project
+##### General Architecture of the Project
 
 ```python
 ----A1_3.0\
@@ -219,7 +219,7 @@ Corresponding to three requirements of our web application, there are three main
   - generate  and save the result of text-detction using OpenCV
   - save the paths in database
   - return `"Upload successed!"`
-- **showphoto(filename) **: select a certain row in database according a certain path of thumbnail
+- **showphoto(filename)**: select a certain row in database according a certain path of thumbnail
 
 ###### view.py
 
