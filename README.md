@@ -24,13 +24,17 @@ We are using AWS educate account. To avoid unexpected situations, username and p
 
 After logging into the EC2 dashboard, click **Running Instances** in **resources** and choose the only instance listed named **ece1779**. Choose **Actions → Instance State → Start** to start the instance.
 
-![picture](documentation/ins1.png)
+<p align="center">
+   <img src="https://github.com/2nc/Text-Detection-On-Photos/blob/master/documentation/ins1.png" alt="ins1" width=800px />
+   <br />
+   <b>Resources in EC2 Dashboard</b>
+</p>
 
-<center>Resources in EC2 Dashboard</center>
-
-![picture](documentation/start.png)
-
-<center>Start the instance</center>
+<p align="center">
+   <img src="https://github.com/2nc/Text-Detection-On-Photos/blob/master/documentation/start.png" alt="start" width=800px />
+   <br />
+   <b>Start the instance</b>
+</p>
 
 ##### 3. Connect to the instance using SSH
 
@@ -79,33 +83,39 @@ Detailed derections are shown below with sample screenshots.
 
 Open the browser and enter the dynamic URL **Server's IPv4 address + :5000** to access the welcome page.
 
-![picture](documentation/welcome.png)
-
-<center>Welcome Page</center>
-
+<p align="center">
+   <img src="https://github.com/2nc/Text-Detection-On-Photos/blob/master/documentation/welcome.png" alt="welcome" width=800px />
+   <br />
+   <b>Welcome Page</b>
+</p>
 
 ###### Register or Login
 
 Click on **"Login&Register"** to either login your previous account or create a new account. Also, you can simply put mouse on **"Login&Register"** and choose from the drop-down menu.
 
-![picture](documentation/lor.png)
-
-<center>Login&Register Page</center>
-
+<p align="center">
+   <img src="https://github.com/2nc/Text-Detection-On-Photos/blob/master/documentation/lor.png" alt="lor" width=800px />
+   <br />
+   <b>Login&Register Page</b>
+</p>
 
 ###### Upload Photos
 
 After successfully logged in, you will be automatically redirected to the upload page. Follow the instructions to upload your photo once a time. Notice that the format is restricted to **.png**, **.jpg** and **.jpeg**. Also, your photo can not be bigger than **100MB**.
 
-![picture](documentation/upload.png)
+<p align="center">
+   <img src="https://github.com/2nc/Text-Detection-On-Photos/blob/master/documentation/upload.png" alt="upload" width=800px />
+   <br />
+   <b>Upload Page</b>
+</p>
 
-<center>Upload Page</center>
 After uploading, your photo will be saved, as well as its thumbnail and result of text-detection. After going through all these steps, it will return a message to show that you have successfully uploaded a photo. You can choose to upload more photos or click on **album** to view your previous photos in thumbnail.
 
-![picture](documentation/success.png)
-
-<center>Success Message</center>
-
+<p align="center">
+   <img src="https://github.com/2nc/Text-Detection-On-Photos/blob/master/documentation/success.png" alt="success" width=800px />
+   <br />
+   <b>Success Message</b>
+</p>
 
 ###### Album
 
