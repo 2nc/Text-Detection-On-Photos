@@ -8,13 +8,17 @@
 
 We are using AWS educate account. To avoid unexpected situations, username and passward are mentioned in **credentials.txt** as well. Click  [AWS sign-in page](https://console.aws.amazon.com/) to sign in to the console, and find EC2 among all services.
 
-![picture](documentation/sign1.png)
+<p align="center">
+   <img src="https://github.com/2nc/Text-Detection-On-Photos/blob/master/documentation/sign1.png" alt="sign1" width=800px />
+   <br />
+   <b>Sign in page</b>
+</p>
 
-<center>Sign in page</center>
-
-![picture](documentation/EC2.png)
-
-<center>AWS Management Console</center>
+<p align="center">
+   <img src="https://github.com/2nc/Text-Detection-On-Photos/blob/master/documentation/EC2.png" alt="EC2" width=800px />
+   <br />
+   <b>AWS Management Console</b>
+</p>
 
 ##### 2. Start the instance
 
